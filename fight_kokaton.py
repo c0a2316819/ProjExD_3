@@ -94,8 +94,8 @@ class Beam:
     #     """
         self.img = pg.image.load(f"fig/beam.png")
         self.rct = self.img.get_rect()
-        self.rec.centery = bird.rct.centery #こうかとんの中心縦座標
-        self.rct.lrft  = bird.rct.right #こうか右座標をビームの左座標
+        self.rct.centery = bird.rct.centery #こうかとんの中心縦座標
+        self.rct.left  = bird.rct.right #こうか右座標をビームの左座標
         self.vx, self.vy = +5, 0
 
     def update(self, screen: pg.Surface):
@@ -166,7 +166,7 @@ def main():
 
         if bomb is not None:
             if beam is not None:
-                if bobm.rct.colliderect(beam.rct):
+                if bomb.rct.colliderect(beam.rct):
                     bomb = None
                     beam = None
 
@@ -176,7 +176,6 @@ def main():
             beam.update(screen)
         if bomb is not None:
             bomb.update(screen)
-        bomb.update(screen)
         pg.display.update()
         tmr += 1
         clock.tick(50)
