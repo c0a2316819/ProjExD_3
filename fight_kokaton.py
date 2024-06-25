@@ -156,13 +156,13 @@ def main():
             if event.type == pg.QUIT:
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
-                # スペースキー押下でBeamクラスのインスタンス生成
+                # スペースキー　押下でBeamクラスのインスタンス生成
                 beam = Beam(bird)
         screen.blit(bg_img, [0, 0])
         
         for bomb in bombs:
             if bird.rct.colliderect(bomb.rct):
-                # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
+                # ゲームオーバー時に， こうかとん画像を切り替え，1秒間表示させる
                 # bird.change_img(8, screen)
                 fonto = pg.font.Font(None, 80)
                 txt = fonto.render("Game Over", True, (255, 0, 0))
